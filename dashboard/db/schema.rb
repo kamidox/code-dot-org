@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160726015145) do
+ActiveRecord::Schema.define(version: 20160805190505) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.integer  "user_id"
@@ -561,7 +561,6 @@ ActiveRecord::Schema.define(version: 20160726015145) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "wrapup_video_id"
-    t.boolean  "trophies",                      default: false, null: false
     t.boolean  "hidden",                        default: false, null: false
     t.integer  "user_id"
     t.boolean  "login_required",                default: false, null: false
@@ -652,14 +651,6 @@ ActiveRecord::Schema.define(version: 20160726015145) do
     t.datetime "updated_at"
     t.index ["prize_provider_id"], name: "index_teacher_prizes_on_prize_provider_id", using: :btree
     t.index ["user_id"], name: "index_teacher_prizes_on_user_id", using: :btree
-  end
-
-  create_table "trophies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
-    t.string   "name"
-    t.string   "image_name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["name"], name: "index_trophies_on_name", unique: true, using: :btree
   end
 
   create_table "unexpected_teachers_workshops", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
@@ -784,15 +775,6 @@ ActiveRecord::Schema.define(version: 20160726015145) do
     t.datetime "updated_at"
     t.index ["script_id"], name: "index_user_scripts_on_script_id", using: :btree
     t.index ["user_id", "script_id"], name: "index_user_scripts_on_user_id_and_script_id", unique: true, using: :btree
-  end
-
-  create_table "user_trophies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
-    t.integer  "user_id",    null: false
-    t.integer  "trophy_id",  null: false
-    t.integer  "concept_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["user_id", "trophy_id", "concept_id"], name: "index_user_trophies_on_user_id_and_trophy_id_and_concept_id", unique: true, using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|

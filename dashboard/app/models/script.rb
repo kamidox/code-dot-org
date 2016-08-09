@@ -7,7 +7,6 @@
 #  created_at      :datetime
 #  updated_at      :datetime
 #  wrapup_video_id :integer
-#  trophies        :boolean          default(FALSE), not null
 #  hidden          :boolean          default(FALSE), not null
 #  user_id         :integer
 #  login_required  :boolean          default(FALSE), not null
@@ -314,7 +313,8 @@ class Script < ActiveRecord::Base
     name == 'edit-code'
   end
 
-  def is_k1?
+  # TODO(asher): Rename this method to k1?, removing the need to disable lint.
+  def is_k1?  # rubocop:disable PredicateName
     name == 'course1'
   end
 
