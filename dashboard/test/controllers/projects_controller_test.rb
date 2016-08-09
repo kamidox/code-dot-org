@@ -105,7 +105,7 @@ class ProjectsControllerTest < ActionController::TestCase
   test 'shared applab and gamelab project level gets redirected to edit if under 13 with tos teacher' do
     sign_in create(:young_student_with_tos_teacher)
 
-    [:applab, :gamelab].each do |lab|
+    %w(applab gamelab).each do |lab|
       get :load, params: {key: lab}
 
       assert @response.headers['Location'].ends_with? '/edit'
