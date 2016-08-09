@@ -623,6 +623,7 @@ DEPENDENCIES
   active_model_serializers!
   active_record_query_trace
   acts_as_list
+  addressable
   annotate
   aws-sdk (~> 2)
   better_errors

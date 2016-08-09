@@ -205,3 +205,4 @@ gem 'acmesmith'
 gem 'firebase_token_generator'
 gem "selectize-rails"
 gem 'mail_view'
+gem 'addressable'
