@@ -34,12 +34,12 @@ class S3PackagingTest < Minitest::Test
 
   def setup
     @source_location, @target_location, @packager = create_packager
-    CDO.log.level = :warn
+    CDO.log.level = Logger::Severity::WARN
   end
 
   def teardown
     cleanup_packager(@source_location, @target_location)
-    CDO.log.level = :info
+    CDO.log.level = Logger::Severity::INFO
   end
 
   def test_s3_key
