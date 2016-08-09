@@ -21,7 +21,7 @@ class S3PackagingTest < Minitest::Test
     end
     packager = RakeUtils.stub(:git_folder_hash, commit_hash) do
       S3Packaging.new('test-package', source_location, target_location).tap do |s3|
-        s3.instance_variable_get(:@logger).level = :warn
+        s3.instance_variable_get(:@logger).level = Logger::Severity::WARN
       end
     end
     [source_location, target_location, packager]
