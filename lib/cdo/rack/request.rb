@@ -104,4 +104,4 @@ module Cdo
   end
 end
 Rack::Request.prepend Cdo::RequestExtension
-ActionDispatch::Request.prepend Cdo::RequestExtension
+ActionDispatch::Request.prepend(Cdo::RequestExtension) if defined?(ActionDispatch::Request)
