@@ -7,5 +7,5 @@ class IndexAndAllowNullIndexedAtForUserGeos < ActiveRecord::Migration[4.2]
 
   def down
     drop_index :user_geos, :indexed_at
-  end 
+  end
 end

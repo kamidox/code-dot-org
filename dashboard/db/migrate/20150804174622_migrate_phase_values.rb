@@ -8,7 +8,8 @@ class MigratePhaseValues < ActiveRecord::Migration[4.2]
       6 => 'Phase 3C',
       7 => 'Phase 3D',
       8 => 'Phase 4'
-  }
+  }.freeze
+
   def up
     ActiveRecord::Base.transaction do
       Workshop.find_each do |workshop|
@@ -26,6 +27,7 @@ class MigratePhaseValues < ActiveRecord::Migration[4.2]
       end
     end
   end
+
   def down
     ActiveRecord::Base.transaction do
       Workshop.find_each do |workshop|
